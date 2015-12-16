@@ -13,7 +13,14 @@ public class RegExpTutor extends Tutor {
     }
 
     public Email getEmail(String emailString) {
-        return null;
+        //String regex = "[a-z0-9\\.*]{2,}?@[a-z]{2,}?\\.[a-z]{2,}";
+        String regex = "[@\\.]";
+        String[] strSpl = emailString.split(regex);
+        Email email = new Email();
+        email.name = strSpl[0];
+        email.domainName = strSpl[1];
+        email.domainZone = strSpl[2];
+        return email;
     }
 
     /**
@@ -24,7 +31,12 @@ public class RegExpTutor extends Tutor {
      * And returns an array of animals
      */
     public String[] getAnimalsArray(String animalsString) {
-        return null;
+        String firstregex = "[:][ ]";
+
+        String[] temp = animalsString.split(firstregex);
+        String secondregex = "[,] ?|\\.";
+        String[] animalsList = temp[1].split(secondregex);
+        return animalsList;
     }
 
     @Test

@@ -38,9 +38,10 @@ public class SystemCurrentTimeTutor {
      * Method should return date with added plusDays days
      */
     public Date getDatePlus(Date date, int plusDays) {
-        long bufor = 24*3600*1000;
-        long dateInMillis = date.getTime();
-        return new Date(dateInMillis + (plusDays * bufor));
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE,plusDays);
+        return cal.getTime();
     }
 
     @Test
